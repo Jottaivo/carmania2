@@ -1,9 +1,14 @@
 class Cloud extends GameObject {
 
+  float maxSpeed;
 
-  Cloud (Pvector _position, PVector _velocity, PVector _acceleration, PImage _sprite) {
+  Cloud(PVector _position, PVector _velocity, PVector _acceleration, PImage _sprite) {
 
-    Super(_position, _velocity, _acceleration, _sprite);
+    super(_position, _velocity, _acceleration, _sprite);
+
+    sprite.resize(700, 200);
+    
+    maxSpeed = 4;
   }
 
   void run() {
@@ -12,11 +17,12 @@ class Cloud extends GameObject {
   }
 
   void render() {
-
-    image("maln2.png", position.x, position.y, 50, 50);
+    imageMode(CENTER);
+    image(maln_image, position.x, position.y);
   }
 
   void update() {
+ 
 
     // Check for borders
     if (position.x > width) {
@@ -33,9 +39,10 @@ class Cloud extends GameObject {
     }
 
     if ((frameCount % 240) == 0) {
-
-      velocity.x = random(0, maxspeed);
-      velocity.y = random(0, maxspeed);
+         
+    println("framecount!");
+      velocity.x = random(0, maxSpeed);
+      velocity.y = random(0, maxSpeed);
     }
 
     position.add(velocity);
