@@ -1,3 +1,7 @@
+PImage vw_image;
+PImage maln_image;
+
+
 void setup(){
 
 size (1000,1000);

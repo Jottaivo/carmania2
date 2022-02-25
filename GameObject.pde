@@ -1,29 +1,34 @@
 class GameObject{
 
-PVector velocity;
-PVector position;
-PVector acceleration;
-PImage("sprite", "sprite");
+    PVector position;
+    PVector velocity;
+    PVector acceleration;
+    PImage sprite;
 
-GameObject(PVector_position, PVector_acceleration, PVector_velocity){
+    GameObject(PVector _position, PVector _velocity, PVector _acceleration, PImage _sprite){
 
-    
-}
-
-
-void run(){
-
-
-}
-
-void render(){
+        position = _position;
+        velocity = _velocity;
+        acceleration = _acceleration;
+        sprite = _sprite;
+  
+    }
 
 
-}
-
-void update() {
+    void run(){
 
 
-}
+    }
+
+    void render(){
+
+
+    }
+
+    void update() {
+
+
+    }
+
 
 }
