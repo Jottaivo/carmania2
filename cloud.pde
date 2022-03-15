@@ -7,7 +7,7 @@ class Cloud extends GameObject {
     super(_position, _velocity, _acceleration, _sprite);
 
     sprite.resize(700, 200);
-    
+
     maxSpeed = 4;
   }
 
@@ -22,25 +22,27 @@ class Cloud extends GameObject {
   }
 
   void update() {
- 
+
 
     // Check for borders
-    if (position.x > width) {
-      velocity.x = velocity.x*(-1);
-    }
-    if (position.x < 0) {
-      velocity.x = velocity.x*(-1);
-    }
-    if (position.y < 0) {
-      velocity.y = velocity.y*(-1);
-    }
-    if (position.y > height) {
-      velocity.y = velocity.y*(-1);
-    }
+    
+      if (position.x > width) {
+        velocity.x = velocity.x*(-1);
+      }
+      if (position.x < 0) {
+        velocity.x = velocity.x*(-1);
+      }
+      if (position.y < 0) {
+        velocity.y = velocity.y*(-1);
+      }
+      if (position.y > height) {
+        velocity.y = velocity.y*(-1);
+      }
+    
 
     if ((frameCount % 240) == 0) {
-         
-    println("framecount!");
+
+      println("framecount!");
       velocity.x = random(0, maxSpeed);
       velocity.y = random(0, maxSpeed);
     }

@@ -28,7 +28,7 @@ class GameObject{
     }
 
     void update() {
-
+      
 
     }
 

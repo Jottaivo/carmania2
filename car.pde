@@ -5,6 +5,8 @@ class Car extends GameObject {
   Car(PVector _position, PVector _velocity, PVector _acceleration, PImage _sprite) {
 
     super(_position, _velocity, _acceleration, _sprite);
+
+    maxSpeed = 4;
   }
 
   void run() {
@@ -15,11 +17,12 @@ class Car extends GameObject {
   void render() {
     imageMode(CENTER);
     image(vw_image, position.x, position.y);
-  }
+    vw_image.resize(200,100);
+    }
 
   void update() {
-    
-     // keep speed under maxspeed
+
+    // keep speed under maxspeed
     if (velocity.x > maxSpeed) {
       velocity.x = maxSpeed;
     }
@@ -45,23 +48,26 @@ class Car extends GameObject {
     }
     if (position.y > height) {
       position.y = height;
-      }
-      
-      //här jag ändrat senaste nedanför
-      
+    }
+
+    //här jag ändrat senaste nedanför
+
     if (keyPressed) {
-    if (key == 'w') {
-      Car.velocity.y = Car.velocity.y - 0.5;
+      if (key == 'w') {
+        velocity.y = velocity.y - 0.5;
+      }
+      if (key == 's') {
+        velocity.y = velocity.y + 0.5;
+      }
+      if (key == 'a') {
+        velocity.x = velocity.x - 0.5;
+      }
+      if (key == 'd') {
+        velocity.x = velocity.x + 0.5;
+      }
     }
-    if (key == 's') {
-      Car.velocity.y = Car.velocity.y + 0.5;
-    }
-    if (key == 'a') {
-      Car.velocit.x = Car.velocity.x - 0.5;
-    }
-    if (key == 'd') {
-      Car.velocity.x = Car.velocity.x + 0.5;
-    }
+    
+    position.add(velocity);
     
   }
 }
