@@ -2,15 +2,23 @@ PImage vw_image;
 PImage maln_image;
 PImage fuel_image;
 PImage traffic_image;
+PImage star_image;
+
 
 Cloud cloud1;
 Car car1;
 Fuel fuel1;
-Traffic traffic1;
+//Star star1;
+Traffic[] traffic1 = new Traffic[25];
+
+
+
 
 
 void setup() {
 
+  
+  
   size (1000, 1000);
   background(0, 0, 0);
 
@@ -23,16 +31,25 @@ void setup() {
   fuel_image = loadImage("jerry.png");
   fuel1 = new Fuel(new PVector(100, 200), new PVector(0, 0), new PVector(0, 0), fuel_image);
 
-  traffic_image = loadImage("ferrari3.png");
-  traffic1 = new Traffic(new PVector(100, 100), new PVector(0, 0), new PVector(0, 0), traffic_image);
+  star_image = loadImage("star.png");
+  //  star1 = new Star(new PVector(100, 100), new PVector(2, 2), new PVector(0, 0), star_image);
+
+  traffic_image = loadImage("Traffic.png");
+  for (int i = 0; i < traffic1.length; i++) {
+  traffic1[i] = new Traffic(new PVector(100, 200), new PVector(0, 0), new PVector(0, 0), traffic_image);          //konstruktorn
+  }
 }
 
 
 
 void draw() {
   background(00, 0, 00);
+
+  for (int i = 0; i < traffic1.length; i++) {
+    traffic1[i].run();
+  }
+
   cloud1.run();
   car1.run();
   fuel1.run();
-  traffic1.run();
 }
