@@ -16,8 +16,8 @@ class Car extends GameObject {
 
   void render() {
     imageMode(CENTER);
-    image(vw_image, position.x, position.y);
-    vw_image.resize(200,100);
+    image(sprite, position.x, position.y);
+    sprite.resize(200,100);
     }
 
   void update() {

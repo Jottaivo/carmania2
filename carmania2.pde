@@ -5,11 +5,14 @@ PImage traffic_image;
 PImage star_image;
 
 
+
+
 Cloud cloud1;
 Car car1;
 Fuel fuel1;
-//Star star1;
-Traffic[] traffic1 = new Traffic[25];
+Star star1;
+Traffic[] traffic1 = new Traffic[12];
+Timer timer1;
 
 
 
@@ -17,8 +20,8 @@ Traffic[] traffic1 = new Traffic[25];
 
 void setup() {
 
-  
-  
+
+
   size (1000, 1000);
   background(0, 0, 0);
 
@@ -32,11 +35,13 @@ void setup() {
   fuel1 = new Fuel(new PVector(100, 200), new PVector(0, 0), new PVector(0, 0), fuel_image);
 
   star_image = loadImage("star.png");
-  //  star1 = new Star(new PVector(100, 100), new PVector(2, 2), new PVector(0, 0), star_image);
+  star1 = new Star(new PVector(100, 100), new PVector(2, 2), new PVector(0, 0), star_image);
 
   traffic_image = loadImage("Traffic.png");
   for (int i = 0; i < traffic1.length; i++) {
-  traffic1[i] = new Traffic(new PVector(100, 200), new PVector(0, 0), new PVector(0, 0), traffic_image);          //konstruktorn
+    traffic1[i] = new Traffic(new PVector(100, 200), new PVector(0, 0), new PVector(0, 0), traffic_image);          //konstruktorn
+
+    timer1 = new Timer(new PVector(100, 200), new PVector(0, 0), new PVector(0, 0), null);
   }
 }
 
@@ -52,4 +57,6 @@ void draw() {
   cloud1.run();
   car1.run();
   fuel1.run();
+  star1.run();
+  timer1.run();
 }

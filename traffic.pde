@@ -1,6 +1,6 @@
 class Traffic extends GameObject {
 
-  int state;
+
 
 
   float maxSpeed;
@@ -10,8 +10,6 @@ class Traffic extends GameObject {
 
     spawn();
     maxSpeed = 100;
-
-    state = 1;
   }
 
 
@@ -23,7 +21,6 @@ class Traffic extends GameObject {
 
 
   void spawn() {
-    state = 2;
     //   position.x = random(10, 1000);
     position.y = random(10, 1000);
     velocity.x = random(1, 4);
@@ -33,8 +30,8 @@ class Traffic extends GameObject {
 
   void render() {
     imageMode(CENTER);
-    image(traffic_image, position.x, position.y);
-    traffic_image.resize(200, 75);
+    image(sprite, position.x, position.y);
+    sprite.resize(200, 75);
   }
 
 
@@ -43,12 +40,11 @@ class Traffic extends GameObject {
     position.x = position.x + velocity.x;       //det som ger hastigheten
 
     if (position.x > width) {  //tar bort bilen om den kommer till hörnen
-      traffic_image = null;
+      position.x = 0;
+      position.y = random(10, 1000);
+      velocity.x = random(1, 4);
     }
 
-    if (position.x > width) {
-      position.y = random(10, 1000);
-    }
 
 
 

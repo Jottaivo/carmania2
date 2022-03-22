@@ -18,7 +18,7 @@ class Cloud extends GameObject {
 
   void render() {
     imageMode(CENTER);
-    image(maln_image, position.x, position.y);
+    image(sprite, position.x, position.y);
   }
 
   void update() {

@@ -12,8 +12,8 @@ class Fuel extends GameObject {
 
   void render() {
     imageMode(CENTER);
-    image(fuel_image, position.x, position.y);
-    fuel_image.resize(100, 100);
+    image(sprite, position.x, position.y);
+    sprite.resize(100, 100);
   }
 
 
