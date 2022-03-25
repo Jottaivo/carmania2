@@ -23,4 +23,8 @@ class Star extends GameObject {
       position.y = random(70, height);
     }
   }
+  
+  
+  
+  
 }

@@ -15,12 +15,9 @@ Traffic[] traffic1 = new Traffic[12];
 Timer timer1;
 
 
-
-
-
 void setup() {
 
-
+  timer1 = new Timer (new PVector(100, 200), new PVector(0, 0), new PVector(0, 0), null, 10);
 
   size (1000, 1000);
   background(0, 0, 0);
@@ -40,8 +37,6 @@ void setup() {
   traffic_image = loadImage("Traffic.png");
   for (int i = 0; i < traffic1.length; i++) {
     traffic1[i] = new Traffic(new PVector(100, 200), new PVector(0, 0), new PVector(0, 0), traffic_image);          //konstruktorn
-
-    timer1 = new Timer(new PVector(100, 200), new PVector(0, 0), new PVector(0, 0), null);
   }
 }
 
@@ -54,9 +49,11 @@ void draw() {
     traffic1[i].run();
   }
 
+  timer1.run();
+
   cloud1.run();
   car1.run();
   fuel1.run();
   star1.run();
-  timer1.run();
+  //  timer1.run();
 }
