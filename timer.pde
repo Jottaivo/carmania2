@@ -34,7 +34,7 @@ class Timer extends GameObject {
   void render() {
     fill(255, 255, 0);
     textSize(100);
-    text(round(timer1.getTime()), 200, 100);
+    text(round(timer1.getTime()), 500, 100);
   }
 
 
