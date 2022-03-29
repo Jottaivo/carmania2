@@ -77,15 +77,15 @@ class lvl extends GameObject {
     }
   }
 
-  void setup_stage_one() { //meny
+  void setup_stage_one() { //meny antar att det är här jag ska skriva meny koden
   }
-  void setup_stage_two() { //lvl 1
+  void setup_stage_two() { //lvl 1 skriva lvl1 koden antar jag
   }
-  void setup_stage_three() { // lvl 2
+  void setup_stage_three() { //lvl 2 skriva lvl1 koden antar jag
   }
-  void setup_stage_four() { // lvl 3
+  void setup_stage_four() { //lvl 3 skriva lvl1 koden antar jag
   }
-  void setup_stage_five() { // gameOver
+  void setup_stage_five() { // skriva gameOver koden
   }
 
 
