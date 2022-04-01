@@ -11,6 +11,7 @@ class lvl extends GameObject {
   void run() {
     render();
     update();
+    draw_menu();
   }
 
   void render() {
@@ -34,7 +35,13 @@ class lvl extends GameObject {
   }
 
   void draw_menu() {
+    if (key == 'q') {
+      
+    
+
     text("hello world", 500, 500);
+    background(255);
+    }
   }
 
   void draw_lvl1() {
