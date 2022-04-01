@@ -9,6 +9,8 @@ class Fuel extends GameObject {
     render();
     update();
   }
+  //vad händer
+
 
   void render() {
     imageMode(CENTER);

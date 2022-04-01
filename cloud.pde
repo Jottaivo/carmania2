@@ -10,6 +10,8 @@ class Cloud extends GameObject {
 
     maxSpeed = 4;
   }
+  //vad händer
+
 
   void run() {
     update();

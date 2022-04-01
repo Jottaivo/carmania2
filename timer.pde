@@ -6,6 +6,8 @@ class Timer extends GameObject {
     super(_position, _velocity, _acceleration, _sprite);
     time = set;
   }
+  //vad händer
+
 
   float getTime() {  //ger den tiden för stunden
     return(time);

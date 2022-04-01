@@ -1,17 +1,14 @@
 class Traffic extends GameObject {
 
-
-
-
   float maxSpeed;
 
-  Traffic(PVector _position, PVector _velocity, PVector _acceleration, PImage _sprite) {
+  Traffic(PVector _position, PVector _velocity, PVector _acceleration, PImage _sprite, float _maxSpeed) {
     super(_position, _velocity, _acceleration, _sprite);
 
     spawn();
-    maxSpeed = 100;
+    maxSpeed = _maxSpeed;
   }
-
+  //vad händer
 
 
   void run() {
@@ -23,8 +20,8 @@ class Traffic extends GameObject {
   void spawn() {
     //   position.x = random(10, 1000);
     position.y = random(10, 1000);
-    velocity.x = random(1, 4);
-    velocity.y = random(1, 4);
+    velocity.x = random(1, maxSpeed);
+    velocity.y = random(1, maxSpeed);
   }
 
 

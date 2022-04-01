@@ -15,6 +15,7 @@ class GameObject{
         sprite = _sprite;
   
     }
+//vad händer
 
 
     void run(){
