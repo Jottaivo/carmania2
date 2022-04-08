@@ -1,24 +1,51 @@
-Lvl lvls1;
+Lvl currentLvl;
+
+String gameState;
+
+int time;
 
 void setup() {
 
   size (1000, 1000);
   background(0, 0, 0);
 
-  lvls1 = new Lvl(1);
+  currentLvl = new Lvl(1);
+
+  gameState = "RUN";
 }
 
-//jag vet inte vad som händer
- 
+
 void draw() {
 
-  lvls1.run();
-  //  timer1.run();
-}
+  switch (gameState) {
 
-void update() {
+  case "STARTUP":
+    
+   
+    break;
 
-  if (timer1.time < 10) {
-    lvls1.draw_menu();
+
+  case "RUN":
+    currentLvl.run();
+
+    break;
+
+
+  case "NEW LEVEL":
+    background(0);
+    
+    if(frameCount - time > 3*frameRate){
+     int lvl = currentLvl.level;
+     currentLvl = new Lvl(lvl + 1);
+     gameState = "RUN"; 
+    }
+    
+    break;
+
+
+  case "GAME OVER":
+
+
+    break;
   }
 }

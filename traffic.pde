@@ -5,8 +5,8 @@ class Traffic extends GameObject {
   Traffic(PVector _position, PVector _velocity, PVector _acceleration, PImage _sprite, float _maxSpeed) {
     super(_position, _velocity, _acceleration, _sprite);
 
-    spawn();
     maxSpeed = _maxSpeed;
+    spawn();
   }
   //vad händer
 
@@ -19,7 +19,7 @@ class Traffic extends GameObject {
 
   void spawn() {
     //   position.x = random(10, 1000);
-    position.y = random(10, 1000);
+    position.y = random(10, height - 10);
     velocity.x = random(1, maxSpeed);
     velocity.y = random(1, maxSpeed);
   }
@@ -28,7 +28,7 @@ class Traffic extends GameObject {
   void render() {
     imageMode(CENTER);
     image(sprite, position.x, position.y);
-    sprite.resize(200, 75);
+    sprite.resize(100, 100);
   }
 
 
@@ -41,9 +41,6 @@ class Traffic extends GameObject {
       position.y = random(10, 1000);
       velocity.x = random(1, 4);
     }
-
-
-
 
     //kollar efter hörnen
     if (position.x > width) {
@@ -60,4 +57,6 @@ class Traffic extends GameObject {
     }
     //slut
   }
+
+
 }
