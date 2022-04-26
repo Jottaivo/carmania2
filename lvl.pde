@@ -1,7 +1,7 @@
 class Lvl {
 
   int i;
-
+  int points;
   int level;
 
   int LVL_TIME = 10;
@@ -11,6 +11,7 @@ class Lvl {
   PImage fuel_image;
   PImage traffic_image;
   PImage star_image;
+  PImage explosion_image;
 
   Cloud cloud1;
   Car car1;
@@ -38,7 +39,8 @@ class Lvl {
     cloud1 = new Cloud(new PVector(100, 100), new PVector(2, 2), new PVector(0, 0), maln_image);
 
     vw_image = loadImage("vw.png");
-    car1 = new Car(new PVector(500, 500), new PVector(0, 0), new PVector(0, 0), vw_image);
+    explosion_image = loadImage("explosion.png");
+    car1 = new Car(new PVector(500, 500), new PVector(0, 0), new PVector(0, 0), vw_image, explosion_image);
 
     fuel_image = loadImage("jerry.png");
     fuel1 = new Fuel(new PVector(100, 200), new PVector(0, 0), new PVector(0, 0), fuel_image);
@@ -55,7 +57,7 @@ class Lvl {
   void run() {
     background(0);
 
-
+    points();
     timer1.run();
     fuel1.run();
     star1.run();
@@ -73,5 +75,10 @@ class Lvl {
       gameState = "NEW LEVEL";
       time = frameCount;
     }
+  }
+  
+  void points(){
+    fill(255);
+    text(points,400,300);
   }
 }

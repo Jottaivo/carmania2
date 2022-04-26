@@ -1,14 +1,16 @@
 class Car extends GameObject {
-
+  boolean onStar;
   float maxSpeed;
   float fuel;
+  PImage sprite2;
 
-  Car(PVector _position, PVector _velocity, PVector _acceleration, PImage _sprite) {
+  Car(PVector _position, PVector _velocity, PVector _acceleration, PImage _sprite, PImage _sprite2) {
 
     super(_position, _velocity, _acceleration, _sprite);
-
+    sprite2 = _sprite2;
     fuel = 100;
     maxSpeed = 4;
+   
   }
   //vad händer
 
@@ -26,6 +28,8 @@ class Car extends GameObject {
     sprite.resize(200, 100);
 
     text(round(fuel), 100, 100);
+    
+    
   }
 
   void update() {
@@ -81,28 +85,45 @@ class Car extends GameObject {
   }
 
   void explode() {
-    rect(99,99,99,99);
+    image(explosion_image, position.x, position.y);
   }
 
   void collisionCheck() {
 
     for (int i = 0; i < currentLvl.traffic1.length; i++) {
 
+      if (abs(currentLvl.traffic1[i].position.x - position.x) < 20 && abs(currentLvl.traffic1[i].position.y - position.y) < 20) {
+        explode();
+      }
+    }
+
+    for (int i = 0; i < currentLvl.traffic1.length; i++) {
+
       if (abs(currentLvl.traffic1[i].position.x - position.x) < 100 && abs(currentLvl.traffic1[i].position.y - position.y) < 100) {
         explode();
-        println("krockat");
+        println("bil krock");
       }
     }
 
 
     if (abs(currentLvl.fuel1.position.x - position.x) < 100 && abs(currentLvl.fuel1.position.y - position.y) < 100) {
 
-      println("it's aliveeeeee");
+      println("soppa torsk ksk idk");
 
       currentLvl.fuel1.position.x = random(70, width);
       currentLvl.fuel1.position.y = random(70, height);
 
       fuel += 60;
+    }
+
+
+    if (abs(currentLvl.star1.position.x - position.x) < 70 && abs(currentLvl.star1.position.y - position.y) < 70 && !onStar) {
+      onStar = true;
+      currentLvl.points += 1 ;
+      currentLvl.star1.position.x = random(70, width);
+      currentLvl.star1.position.y = random(70, height);
+    } else if (abs(currentLvl.star1.position.x - position.x) >= 70 || abs(currentLvl.star1.position.y - position.y) >= 70) {
+      onStar = false;
     }
   }
 }
