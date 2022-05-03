@@ -1,12 +1,14 @@
 class Car extends GameObject {
 
   float maxSpeed;
+  float fuel;
 
   Car(PVector _position, PVector _velocity, PVector _acceleration, PImage _sprite) {
 
     super(_position, _velocity, _acceleration, _sprite);
 
     maxSpeed = 4;
+    fuel = 100;
   }
 
   void run() {
@@ -16,9 +18,10 @@ class Car extends GameObject {
 
   void render() {
     imageMode(CENTER);
+    sprite.resize(200, 100);
     image(sprite, position.x, position.y);
-    sprite.resize(200,100);
-    }
+
+  }
 
   void update() {
 
@@ -65,9 +68,26 @@ class Car extends GameObject {
       if (key == 'd') {
         velocity.x = velocity.x + 0.5;
       }
+
+      collisionCheck();
     }
-    
-    position.add(velocity);
-    
+
+    position.add(velocity) {
+
+      // update position
+      if (fuel > 0) {
+        xpos = xpos + xspeed;
+        ypos = ypos + yspeed;
+
+        // fuel consumtion
+        fuel = fuel - sqrt(sq(xspeed)+sq(yspeed))*0.05);
+      }
+    }
+
+    void collisionCheck() {
+
+      //if (hp < -1 ) {
+      //  rect(100, 100, 1000, 1000);
+      //}
+    }
   }
-}
