@@ -1,3 +1,7 @@
+import processing.sound.*;
+SoundFile carCrash;
+SoundFile lvlUp;
+
 Lvl currentLvl;
 
 String gameState;
@@ -12,6 +16,9 @@ void setup() {
   currentLvl = new Lvl(1);
 
   gameState = "RUN";
+  
+  carCrash = new SoundFile(this, "carCrash.wav");
+  lvlUp = new SoundFile(this, "lvlUp.wav");
 }
 
 
